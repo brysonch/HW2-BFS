@@ -21,7 +21,34 @@ class Graph:
         * If there is an end node input and a path does not exist, return None
 
         """
-        return
+
+        if start == None or not self.graph: raise Exception("Graph is empty")
+
+        if start not in self.graph: raise Exception("Start node "+ start +" not found in graph")
+
+        if start == end: return start
+
+        Q = []
+        visited = []
+        Q.append(start)
+        sp = {}
+        sp[start] = []
+
+        while Q:
+            v = Q.pop()
+            visited.append(v)
+            neighbors = [n for n in self.graph[v]]
+            if end and v == end: return sp[v]
+            for w in neighbors:
+                if w not in visited: 
+                    visited.append(w)
+                    Q.append(w)
+                    sp[w] = sp[v] + [w]
+                
+
+        if not end: return visited
+
+        return None
 
 
 
