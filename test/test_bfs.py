@@ -10,7 +10,7 @@ def test_bfs_traversal():
     that all nodes are being traversed (ie. returns 
     the right number of nodes, in the right order, etc.)
     """
-    tiny_graph = Graph("data/tiny_network.adjlist")
+    tiny_graph = graph.Graph("data/tiny_network.adjlist")
     test_traversal = tiny_graph.bfs("Michael Keiser")
     
     assert test_traversal[-1] == "Charles Chiu", "Last node of Michael Keiser traversal should be Charles Chiu"
@@ -29,8 +29,8 @@ def test_bfs():
     which should return None. 
 
     """
-    cite_graph = Graph("data/citation_network.adjlist")
-    empty_graph = Graph("data/empty_network.adjlist")
+    cite_graph = graph.Graph("data/citation_network.adjlist")
+    empty_graph = graph.Graph("data/empty_network.adjlist")
 
     test_shortest = cite_graph.bfs("Michael Keiser", "Nevan Krogan")
     true_shortest = ['31422865',
