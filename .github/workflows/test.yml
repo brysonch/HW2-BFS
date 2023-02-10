@@ -28,7 +28,7 @@ jobs:
           python -m pip install . 
       
       - name: Run unit tests
-        run: python -vv
+        run: pytest -vv
 
 
         
